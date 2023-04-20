@@ -29,11 +29,10 @@ methods:{
     .get(this.store.ApiUrlSeries,{
       params:this.store.paramsApi
       
-    }
-      
-    )
+    })
     .then((resp)=>{
       this.store.series=resp.data.results
+      console.log(this.store.series[0].original_language);
     })
 
 
@@ -49,14 +48,19 @@ methods:{
 
 
 <template>
-<AppHeader @search="searchFilms()" />
+  <div class="container">
+    <AppHeader @search="searchFilms()" />
 <AppSectionFilm/>
 <AppSectionSeries/>
+  </div>
+
 
 
 </template>
 
 <style lang="scss">
-@use "./styles/general.scss"
-
+@use "./styles/general.scss";
+.container{
+  background-color:rgb(80, 79, 79);
+}
 </style>
